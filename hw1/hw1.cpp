@@ -1,12 +1,13 @@
 // HW1
 // Author: Alec Landow
-
-// Convert this program to C++
-// change to C++ io
-// change to one line comments
-// change defines of constants to const
-// change array to vector<>
-// inline any short function
+//
+// Problem Statement:
+//    Convert this program to C++
+//    change to C++ io
+//    change to one line comments
+//    change defines of constants to const
+//    change array to vector<>
+//    inline any short function
 
 
 #include <iostream>
@@ -16,13 +17,13 @@ using namespace std;
 
 const int N = 40;
 
-template <class summable>
-inline void sum(summable& p, const vector<summable>& data) {
-    p = 0;
+template <class summable> // summable must be a type that has a meaningful + operator
+inline void sum(summable& accumulator, const vector<summable>& data) {
+    accumulator = 0;
 
     summable n = data.size();
     for(int i = 0; i < n; ++i)
-        p += data.at(i);
+        accumulator += data.at(i);
 }
 
 int main() {
