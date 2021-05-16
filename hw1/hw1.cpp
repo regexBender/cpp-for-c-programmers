@@ -1,52 +1,41 @@
-/*   Convert this program to C++
+// Convert this program to C++
+// change to C++ io
+// change to one line comments
+// change defines of constants to const
+// change array to vector<>
+// inline any short function
 
-*   change to C++ io
 
-*   change to one line comments
+#include <iostream>
+#include <vector>
 
-*   change defines of constants to const
+using namespace std;
 
-*   change array to vector<>
+const int N = 40;
 
-*   inline any short function
-
-*/
-
-#include <stdio.h>
-
-#define N 40
-
-void sum(int*p, int n, int d[])
-
-{
+inline void sum(int& p, vector<int> d) {
 
   int i;
 
-  *p = 0;
+  p = 0;
 
+  int n = d.size();
   for(i = 0; i < n; ++i)
-
-    *p = *p + d[i];
+    p = p + d.at(i);
 
 }
 
-int main()
-
-{
-
+int main() {
    int i;
-
    int accum = 0;
-
-   int data[N];
+   vector<int> data;
 
    for(i = 0; i < N; ++i)
+      data.push_back(i);
 
-      data[i] = i;
+    sum(accum, data);
 
-    sum(&accum, N, data);
-
-    printf("sum is %d\n", accum);
+    cout << "sum is " << accum << endl;
 
     return 0;
 
