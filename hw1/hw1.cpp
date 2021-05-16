@@ -16,12 +16,13 @@ using namespace std;
 
 const int N = 40;
 
-inline void sum(int& p, vector<int>& data) {
+template <class summable>
+inline void sum(summable& p, const vector<summable>& data) {
     p = 0;
 
-    int n = data.size();
+    summable n = data.size();
     for(int i = 0; i < n; ++i)
-        p = p + data.at(i);
+        p += data.at(i);
 }
 
 int main() {
