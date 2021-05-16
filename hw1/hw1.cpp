@@ -13,7 +13,7 @@ using namespace std;
 
 const int N = 40;
 
-inline void sum(int& p, vector<int> d) {
+inline void sum(int& p, vector<int>& d) {
 
   int i;
 
