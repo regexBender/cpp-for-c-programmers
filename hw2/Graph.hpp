@@ -4,13 +4,18 @@
 
 #include <vector>
 
+using namespace std;
+
 class Graph {
     private:
         int number_of_vertices;
         int number_of_edges;
-        vector<vector<int>> adjacency_matrix;
+        vector<vector<double>> adjacency_matrix;
 
     public:
+        Graph(double edge_density, double distance_range);
+        ~Graph();
+
         int get_number_of_vertices();
         int get_number_of_edges();
 
@@ -20,7 +25,7 @@ class Graph {
         bool delete_edge(int node_x, int node_y);
 
         int get_node_value(int node_x);
-        void set_node_value(int node_x, int node_value);
+        void set_node_value(int node_x, double node_value);
         int get_edge_value(int node_x, int node_y);
-        void set_edge_value(int node_x, int node_y, int edge_value);
+        void set_edge_value(int node_x, int node_y, double edge_value);
 }
