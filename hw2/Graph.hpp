@@ -22,11 +22,11 @@ class Graph {
         vector<int> get_neighbors(int node_x);
         bool add_edge(int node_x, int node_y, double edge_value);
         bool delete_edge(int node_x, int node_y);
-        //
-        // int get_node_value(int node_x);
-        // void set_node_value(int node_x, double node_value);
-        // int get_edge_value(int node_x, int node_y);
-        // void set_edge_value(int node_x, int node_y, double edge_value);
+
+        double get_node_value(int node_x);
+        void set_node_value(int node_x, double node_value);
+        double get_edge_value(int node_x, int node_y);
+        void set_edge_value(int node_x, int node_y, double edge_value);
 
         friend std::ostream& operator << (std::ostream& out, const Graph graph);
 };

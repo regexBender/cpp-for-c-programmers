@@ -10,7 +10,6 @@
 #include <ctime>
 #include "Graph.hpp"
 
-
 Graph::Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance) {
     srand(time(0));
 
@@ -84,6 +83,34 @@ bool Graph::delete_edge(int node_x, int node_y) {
     this->adjacency_matrix[node_y][node_x] = 0;
     this->number_of_edges--;
     return true;
+}
+
+
+double Graph::get_node_value(int node_x) {
+    return this->adjacency_matrix[node_x][node_x];
+}
+
+void Graph::set_node_value(int node_x, double node_value) {
+    this->adjacency_matrix[node_x][node_x] = node_value;
+}
+
+double Graph::get_edge_value(int node_x, int node_y) {
+    if (node_x == node_y) {
+        cout << "Invalid: input nodes must be different from each other";
+        return -1;
+    }
+
+    return this->adjacency_matrix[node_x][node_x];
+
+}
+
+void Graph::set_edge_value(int node_x, int node_y, double edge_value) {
+    if (node_x == node_y) {
+        cout << "Invalid: input nodes must be different from each other";
+        return;
+    }
+
+    this->adjacency_matrix[node_x][node_x] = edge_value;
 }
 
 std::ostream& operator << (std::ostream& out, const Graph graph) {
