@@ -18,11 +18,11 @@ Graph::Graph(int number_of_nodes, double edge_density, double min_distance, doub
     this->number_of_edges = 0;
 
     // Reserve the rows
-    this->adjacency_matrix.reserve(this->number_of_nodes);
+    this->adjacency_matrix.resize(this->number_of_nodes);
 
     // Reserve the columns
     for (int node_x = 0; node_x < this->number_of_nodes; node_x++) {
-        this->adjacency_matrix[node_x].reserve(this->number_of_nodes);
+        this->adjacency_matrix[node_x].resize(this->number_of_nodes);
     }
 
     for (int node_x = 0; node_x < this->number_of_nodes; node_x++) {
@@ -38,6 +38,7 @@ Graph::Graph(int number_of_nodes, double edge_density, double min_distance, doub
             this->add_edge(node_x, node_to_connect_to, new_edge_value);
         }
     }
+
 }
 
 bool Graph::add_edge(int node_x, int node_y, double edge_value) {
@@ -51,16 +52,29 @@ bool Graph::add_edge(int node_x, int node_y, double edge_value) {
     return true;
 }
 
-void Graph::print_matrix() {
-    for (int i = 0; i < this->number_of_nodes; i++) {
-        cout << "[ ";
-        for (int j = 0; j < this->number_of_nodes;j++) {
-            cout << this->adjacency_matrix[i][j];
-            if (j != this->number_of_nodes - 1) {
-                cout << ", ";
+bool Graph::delete_edge(int node_x, int node_y) {
+    if (this->adjacency_matrix[node_x][node_y] == 0) {
+        return false;
+    }
+    // The matrix is symmetric, so delete both elements
+    this->adjacency_matrix[node_x][node_y] = 0;
+    this->adjacency_matrix[node_y][node_x] = 0;
+    this->number_of_edges--;
+    return true;
+}
+
+std::ostream& operator << (std::ostream& out, const Graph graph) {
+    for (int i = 0; i < graph.number_of_nodes; i++) {
+        out << "[ ";
+        for (int j = 0; j < graph.number_of_nodes;j++) {
+            out << graph.adjacency_matrix[i][j];
+            if (j != graph.number_of_nodes - 1) {
+                out << ", ";
             }
         }
-        cout << " ]" << endl;
+        out << " ]" << endl;
     }
+
+    return out;
 }
 #endif

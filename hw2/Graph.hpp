@@ -1,6 +1,7 @@
 /*
     The Graph class header
 */
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -21,12 +22,12 @@ class Graph {
         // bool are_adjacent(int node_x, int node_y);
         // vector<int> get_neighbors(int node_x);
         bool add_edge(int node_x, int node_y, double edge_value);
-        // bool delete_edge(int node_x, int node_y);
+        bool delete_edge(int node_x, int node_y);
         //
         // int get_node_value(int node_x);
         // void set_node_value(int node_x, double node_value);
         // int get_edge_value(int node_x, int node_y);
         // void set_edge_value(int node_x, int node_y, double edge_value);
 
-        void print_matrix();
+        friend std::ostream& operator << (std::ostream& out, const Graph graph);
 };

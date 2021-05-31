@@ -14,5 +14,5 @@ int main() {
     double max_distance = 9.0;
 
     Graph graph = Graph(number_of_nodes, edge_density, min_distance, max_distance);
-    graph.print_matrix();
+    cout << graph;
 }
