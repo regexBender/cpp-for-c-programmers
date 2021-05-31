@@ -1,5 +1,5 @@
 /*
-    The Graph class
+    The Graph class header
 */
 
 #include <vector>
