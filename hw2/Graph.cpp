@@ -41,6 +41,29 @@ Graph::Graph(int number_of_nodes, double edge_density, double min_distance, doub
 
 }
 
+int Graph::get_number_of_nodes() {
+    return this->number_of_nodes;
+}
+
+int Graph::get_number_of_edges() {
+    return this->number_of_edges;
+}
+
+bool Graph::are_adjacent(int node_x, int node_y) {
+    return this->adjacency_matrix[node_x][node_y] != 0;
+}
+
+vector<int> Graph::get_neighbors(int node_x) {
+    vector<int> neighbors;
+    for (int node_j = 0; node_j < this->number_of_nodes; node_j++) {
+        if (node_x != node_j && this->adjacency_matrix[node_x][node_j] != 0) {
+            neighbors.push_back(node_j);
+        }
+    }
+
+    return neighbors;
+}
+
 bool Graph::add_edge(int node_x, int node_y, double edge_value) {
     if (this->adjacency_matrix[node_x][node_y] != 0) {
         return false;

@@ -14,13 +14,12 @@ class Graph {
 
     public:
         Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance);
-        // ~Graph();
-        //
-        // int get_number_of_nodes();
-        // int get_number_of_edges();
-        //
-        // bool are_adjacent(int node_x, int node_y);
-        // vector<int> get_neighbors(int node_x);
+
+        int get_number_of_nodes();
+        int get_number_of_edges();
+
+        bool are_adjacent(int node_x, int node_y);
+        vector<int> get_neighbors(int node_x);
         bool add_edge(int node_x, int node_y, double edge_value);
         bool delete_edge(int node_x, int node_y);
         //
