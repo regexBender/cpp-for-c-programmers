@@ -27,4 +27,9 @@ int main() {
         print_vector( graph.get_neighbors(i) );
         cout << endl;
     }
+
+    for (int i = 0; i < graph.get_number_of_nodes(); i++) {
+        cout << "Is 0 adjacent to " << i << "? ";
+        cout << (graph.are_adjacent(0, i) ? "yes" : "no") << endl;
+    }
 }
