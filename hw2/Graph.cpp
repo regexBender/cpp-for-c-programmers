@@ -1,5 +1,6 @@
 /*
     The Graph class
+    Author: Alec Landow
 */
 #ifndef GRAPH_H
 #define GRAPH_H

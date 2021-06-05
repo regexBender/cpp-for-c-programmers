@@ -1,5 +1,6 @@
 /*
     The Graph class header
+    Author: Alec Landow
 */
 #include <iostream>
 #include <vector>
