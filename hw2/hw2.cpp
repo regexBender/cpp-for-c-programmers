@@ -4,6 +4,7 @@ Author: Alec Landow
 */
 #include <iostream>
 #include "Graph.hpp"
+#include "PriorityQueue.hpp"
 
 using namespace std;
 template <class printable>
@@ -32,4 +33,22 @@ int main() {
         cout << "Is 0 adjacent to " << i << "? ";
         cout << (graph.are_adjacent(0, i) ? "yes" : "no") << endl;
     }
+
+    PriorityQueue queue = PriorityQueue();
+    queue.insert(0, 10);
+    cout << "Oddish" << endl;
+    cout << "index: " << queue.top()->index << " | ";
+    cout << "priority: " << queue.top()->priority << endl;
+
+    queue.insert(1, 20);
+    cout << "index: " << queue.top()->index << " | ";
+    cout << "priority: " << queue.top()->priority << endl;
+
+    queue.insert(2, 3);
+    cout << "index: " << queue.top()->index << " | ";
+    cout << "priority: " << queue.top()->priority << endl;
+
+    PriorityQueue::Node minNode = queue.min_priority();
+    cout << "index: " << minNode.index << " | ";
+    cout << "priority: " << minNode.priority << endl;
 }

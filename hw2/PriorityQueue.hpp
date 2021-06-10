@@ -9,7 +9,7 @@
 using namespace std;
 
 class PriorityQueue {
-    private:
+    public:
         class Node {
             public:
                 int index;
@@ -36,9 +36,8 @@ class PriorityQueue {
             priority_queue<Node, vector<Node>, greater<Node>> queue
         );
 
-    public:
         bool change_priority(int node_index, int new_priority);
-        const Node * min_priority();
+        Node min_priority();
         bool contains(int node_index);
         bool insert(int node_index, int priority);
         const Node * top();

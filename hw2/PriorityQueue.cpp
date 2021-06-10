@@ -12,12 +12,12 @@ bool PriorityQueue::change_priority(int node, int new_priority) {
     return this->change_priority_helper(node, new_priority, this->queue);
 }
 
-const PriorityQueue::Node * PriorityQueue::min_priority() {
+PriorityQueue::Node PriorityQueue::min_priority() {
     if (this->queue.empty()) {
-        return nullptr;
+        return Node(-1, -1);
     }
 
-    const Node* top = &( this->queue.top() );
+    Node top = Node(this->top()->index, this->top()->priority);
     this->queue.pop();
     return top;
 }
