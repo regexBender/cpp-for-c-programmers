@@ -7,18 +7,19 @@
 
 #include "PriorityQueue.hpp"
 
-const int EMPTY_NODE_INDICATOR = -1;
 
 bool PriorityQueue::change_priority(int node, int new_priority) {
     return this->change_priority_helper(node, new_priority, this->queue);
 }
 
-int PriorityQueue::min_priority() {
+const PriorityQueue::Node * PriorityQueue::min_priority() {
     if (this->queue.empty()) {
-        return EMPTY_NODE_INDICATOR;
+        return nullptr;
     }
 
-    return return this->queue.pop();
+    const Node* top = &( this->queue.top() );
+    this->queue.pop();
+    return top;
 }
 
 bool PriorityQueue::contains(int node_index) {
@@ -31,22 +32,22 @@ bool PriorityQueue::insert(int node_index, int priority) {
         return false;
     }
 
-    this->queue->emplace(node_index, priority);
+    this->queue.emplace(node_index, priority);
 
     return true;
 }
 
-int PriorityQueue::top() {
-    return this->queue.top();
+const PriorityQueue::Node * PriorityQueue::top() {
+    return &( this->queue.top() );
 }
 
 int PriorityQueue::size() {
     return this->queue.size();
 }
 
-bool search_queue(
+bool PriorityQueue::search_queue(
     int node_index,
-    priority_queue<PriorityQueue::Node, vector<PriorityQueue::Node>, greater<PriorityQueue::Node::priority>> queue
+    priority_queue<PriorityQueue::Node, vector<PriorityQueue::Node>, greater<PriorityQueue::Node>> queue
 ) {
     while (!queue.empty()) {
         if (queue.top().index == node_index) {
@@ -57,12 +58,12 @@ bool search_queue(
     return false;
 }
 
-bool change_priority_helper(
+bool PriorityQueue::change_priority_helper(
     int node_index,
     int new_priority,
-    priority_queue<PriorityQueue::Node, vector<PriorityQueue::Node>, greater<PriorityQueue::Node::priority>> queue
+    priority_queue<PriorityQueue::Node, vector<PriorityQueue::Node>, greater<PriorityQueue::Node>> queue
 ) {
-    priority_queue<PriorityQueue::Node, vector<PriorityQueue::Node>, greater<PriorityQueue::Node::priority>> updated_queue;
+    priority_queue<PriorityQueue::Node, vector<PriorityQueue::Node>, greater<PriorityQueue::Node>> updated_queue;
     bool node_was_present_and_priority_changed = false;
     while (!queue.empty()) {
         if (queue.top().index == node_index) {
@@ -78,5 +79,9 @@ bool change_priority_helper(
         this->queue = updated_queue;
     }
     return node_was_present_and_priority_changed;
+}
+
+bool PriorityQueue::Node::operator > (const PriorityQueue::Node & rightNode) const {
+    return this->priority > rightNode.priority;
 }
 #endif
