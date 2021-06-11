@@ -23,6 +23,7 @@ int main() {
 
     Graph graph = Graph(number_of_nodes, edge_density, min_distance, max_distance);
     cout << graph;
+    cout << graph.get_number_of_nodes();
     for (int i = 0; i < graph.get_number_of_nodes(); i++) {
         cout << "neighbors of " << i << ": ";
         print_vector( graph.get_neighbors(i) );

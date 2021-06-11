@@ -15,6 +15,7 @@ class Graph {
 
     public:
         Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance);
+        Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance, int seed);
 
         int get_number_of_nodes();
         int get_number_of_edges();

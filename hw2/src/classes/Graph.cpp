@@ -11,9 +11,11 @@
 #include <ctime>
 #include "Graph.hpp"
 
-Graph::Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance) {
-    srand(time(0));
+Graph::Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance)
+    : Graph(number_of_nodes, edge_density, min_distance, max_distance, time(0)) {}
 
+Graph::Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance, int seed) {
+    srand(seed);
     this->number_of_nodes = number_of_nodes;
     this->number_of_edges = 0;
 
