@@ -3,8 +3,8 @@ Homework 2: Implement Dijkstra's Algorithm
 Author: Alec Landow
 */
 #include <iostream>
-#include "Graph.hpp"
-#include "PriorityQueue.hpp"
+#include "../classes/Graph.hpp"
+#include "../classes/PriorityQueue.hpp"
 
 using namespace std;
 template <class printable>
