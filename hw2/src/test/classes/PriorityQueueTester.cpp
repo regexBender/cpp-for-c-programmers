@@ -57,4 +57,10 @@ SCENARIO("New PriorityQueue", "[priority_queue]") {
         REQUIRE( new_node_A_priority == minNode.get_priority() );
     }
 
+    SECTION("Empty queue") {
+        PriorityQueue::Node minNode = queue.min_priority();
+        REQUIRE( -1 == minNode.get_index() );
+        REQUIRE( -1 == minNode.get_priority() );
+    }
+
 }
