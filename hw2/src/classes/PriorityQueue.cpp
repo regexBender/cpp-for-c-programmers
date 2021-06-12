@@ -81,6 +81,14 @@ bool PriorityQueue::change_priority_helper(
     return node_was_present_and_priority_changed;
 }
 
+int PriorityQueue::Node::get_index() const {
+    return this->index;
+}
+
+int PriorityQueue::Node::get_priority() const {
+    return this->priority;
+}
+
 bool PriorityQueue::Node::operator > (const PriorityQueue::Node & rightNode) const {
     return this->priority > rightNode.priority;
 }

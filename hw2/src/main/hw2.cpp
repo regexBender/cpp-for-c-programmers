@@ -23,7 +23,7 @@ int main() {
 
     Graph graph = Graph(number_of_nodes, edge_density, min_distance, max_distance);
     cout << graph;
-    cout << graph.get_number_of_nodes();
+
     for (int i = 0; i < graph.get_number_of_nodes(); i++) {
         cout << "neighbors of " << i << ": ";
         print_vector( graph.get_neighbors(i) );
@@ -38,18 +38,18 @@ int main() {
     PriorityQueue queue = PriorityQueue();
     queue.insert(0, 10);
     cout << "Oddish" << endl;
-    cout << "index: " << queue.top()->index << " | ";
-    cout << "priority: " << queue.top()->priority << endl;
+    cout << "index: " << queue.top()->get_index() << " | ";
+    cout << "priority: " << queue.top()->get_priority() << endl;
 
     queue.insert(1, 20);
-    cout << "index: " << queue.top()->index << " | ";
-    cout << "priority: " << queue.top()->priority << endl;
+    cout << "index: " << queue.top()->get_index() << " | ";
+    cout << "priority: " << queue.top()->get_priority() << endl;
 
     queue.insert(2, 3);
-    cout << "index: " << queue.top()->index << " | ";
-    cout << "priority: " << queue.top()->priority << endl;
+    cout << "index: " << queue.top()->get_index() << " | ";
+    cout << "priority: " << queue.top()->get_priority() << endl;
 
     PriorityQueue::Node minNode = queue.min_priority();
-    cout << "index: " << minNode.index << " | ";
-    cout << "priority: " << minNode.priority << endl;
+    cout << "index: " << minNode.get_index() << " | ";
+    cout << "priority: " << minNode.get_priority() << endl;
 }

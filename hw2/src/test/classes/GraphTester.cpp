@@ -1,7 +1,7 @@
 #include "../catch_amalgamated.hpp"
 #include "../../classes/Graph.hpp"
 
-TEST_CASE("Graph Parameters are Correct", "[graph]") {
+SCENARIO("A New Graph is Constructed", "[graph]") {
     int number_of_nodes = 10;
     int number_of_edges = 6;
     double edge_density = 0.5;
