@@ -61,7 +61,7 @@ SCENARIO("A New Graph is Constructed", "[graph]") {
             THEN("The correct node value is returned") {
                 double node_9_value = 18.0;
                 graph.set_node_value(9, node_9_value);
-                REQUIRE( node_9_value == graph.get_node_value(9));
+                REQUIRE( node_9_value == graph.get_node_value(9) );
             }
         }
 
@@ -69,7 +69,7 @@ SCENARIO("A New Graph is Constructed", "[graph]") {
             THEN("The correct edge value is returned") {
                 double edge_0_9_value = 42.0;
                 graph.set_edge_value(0, 9, edge_0_9_value);
-                REQUIRE( edge_0_9_value == graph.get_edge_value(0, 9));
+                REQUIRE( edge_0_9_value == graph.get_edge_value(0, 9) );
             }
         }
     }

@@ -40,10 +40,10 @@ SCENARIO("New PriorityQueue", "[priority_queue]") {
     }
 
     SECTION("Test contains()") {
-        REQUIRE(full_queue.contains(node_A_index));
-        REQUIRE(full_queue.contains(node_B_index));
-        REQUIRE(full_queue.contains(node_C_index));
-        REQUIRE(!full_queue.contains(4));
+        REQUIRE( full_queue.contains(node_A_index) );
+        REQUIRE( full_queue.contains(node_B_index) );
+        REQUIRE( full_queue.contains(node_C_index) );
+        REQUIRE( !full_queue.contains(4) );
     }
 
     SECTION("Test change_priority()") {
