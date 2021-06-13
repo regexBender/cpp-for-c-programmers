@@ -5,10 +5,6 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include <iostream>
-#include <vector>
-#include <cstdlib>
-#include <ctime>
 #include "Graph.hpp"
 
 Graph::Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance)

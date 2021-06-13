@@ -14,7 +14,7 @@ class PriorityQueue {
             friend class PriorityQueue;
             private:
                 int index;
-                int priority;
+                int priority; // TODO: Change to double
 
             public:
                 Node(int node_index, int priority) {
