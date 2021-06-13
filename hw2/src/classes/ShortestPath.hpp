@@ -22,5 +22,6 @@ class ShortestPath {
         int cached_start_node;
         vector<int> paths_from_cached_start_node;
 
-        void _run_dijkstra();
+        vector<int> _run_dijkstra();
+        void _calculate_paths(vector<int>& paths);
 };

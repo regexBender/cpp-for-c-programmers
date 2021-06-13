@@ -17,13 +17,14 @@ vector<int> ShortestPath::vertices() {
 }
 
 vector<int> ShortestPath::path(int start_node, int end_node) {
-
+    vector<int> path_list = this->_run_dijkstra_iterative(start_node);
+    this->_calculate_paths(path_list);
 }
 
 void ShortestPath:_run_dijkstra_iterative(int start_node) {
     vector<bool> known(graph->get_number_of_nodes(), false);
     vector<double> cost(graph->get_number_of_nodes(), numeric_limits<double>::max());
-    vector<int> path(graph->get_number_of_nodes(), -1);
+    vector<int> path_list(graph->get_number_of_nodes(), -1);
 
     cost.at(start_node) = 0.0;
     known.at(start_node) = true;
@@ -39,7 +40,7 @@ void ShortestPath:_run_dijkstra_iterative(int start_node) {
             if (!known.at(neighbor_node)) {
                 if (cost_from_start_to_neighbor < cost.at(neighbor_node)) {
                     cost.at(neighbor_node) = cost_from_start_to_neighbor;
-                    path.at(neighbor_node) = previous_node;
+                    path_list.at(neighbor_node) = previous_node;
 
                     if (self->priority_queue.contains(neighbor_node)) {
                         self->priority_queue.change_priority(neighbor_node, cost.at(neighbor_node));
@@ -59,5 +60,10 @@ void ShortestPath:_run_dijkstra_iterative(int start_node) {
 
     } while (priority_queue.size() > 0);
 
+    return path_list;
+
+}
+
+ShortestPath::_calculate_paths(vector<int>& paths) {
 
 }
