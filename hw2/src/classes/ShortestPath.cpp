@@ -51,12 +51,12 @@ void ShortestPath:_run_dijkstra_iterative(int start_node) {
                 }
 
             }
-
-            PriorityQueue::Node lowest_cost_node = this->priority_queue.min_priority();
-            previous_node = lowest_cost_node.get_index();
-            cost.at(previous_node) = lowest_cost_node.get_priority();
-            known.at(previous_node) = true;
         }
+
+        PriorityQueue::Node lowest_cost_node = this->priority_queue.min_priority();
+        previous_node = lowest_cost_node.get_index();
+        cost.at(previous_node) = lowest_cost_node.get_priority();
+        known.at(previous_node) = true;
 
     } while (priority_queue.size() > 0);
 
