@@ -2,6 +2,8 @@
     The Graph class header
     Author: Alec Landow
 */
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include <cstdlib>

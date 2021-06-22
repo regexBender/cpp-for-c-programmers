@@ -2,9 +2,6 @@
     The Graph class
     Author: Alec Landow
 */
-#ifndef GRAPH_H
-#define GRAPH_H
-
 #include "Graph.hpp"
 
 Graph::Graph(int number_of_nodes, double edge_density, double min_distance, double max_distance)
@@ -126,4 +123,3 @@ std::ostream& operator << (std::ostream& out, const Graph graph) {
 
     return out;
 }
-#endif

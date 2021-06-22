@@ -2,6 +2,8 @@
     Header file for ShortestPath
     Author: Alec Landow
 */
+#pragma once
+
 #include <vector>
 #include <limits>
 #include "Graph.hpp"
@@ -23,5 +25,6 @@ class ShortestPath {
         vector<int> paths_from_cached_start_node;
 
         vector<int> _run_dijkstra();
-        void _calculate_paths(vector<int>& paths);
+        // void _calculate_paths(vector<int>& paths);
+        vector<int> _run_dijkstra_iterative(int start_node);
 };

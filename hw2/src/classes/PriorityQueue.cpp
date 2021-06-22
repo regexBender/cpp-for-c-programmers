@@ -2,9 +2,6 @@
     Implementation of PriorityQueue
     Author: Alec Landow
 */
-#ifndef PQ_H
-#define PQ_H
-
 #include "PriorityQueue.hpp"
 
 
@@ -92,4 +89,3 @@ int PriorityQueue::Node::get_priority() const {
 bool PriorityQueue::Node::operator > (const PriorityQueue::Node & rightNode) const {
     return this->priority > rightNode.priority;
 }
-#endif

@@ -5,6 +5,8 @@ Author: Alec Landow
 #include <iostream>
 #include "../classes/Graph.hpp"
 #include "../classes/PriorityQueue.hpp"
+#include "../classes/ShortestPath.hpp"
+
 
 using namespace std;
 template <class printable>
@@ -24,32 +26,43 @@ int main() {
     Graph graph = Graph(number_of_nodes, edge_density, min_distance, max_distance);
     cout << graph;
 
-    for (int i = 0; i < graph.get_number_of_nodes(); i++) {
-        cout << "neighbors of " << i << ": ";
-        print_vector( graph.get_neighbors(i) );
-        cout << endl;
-    }
+    ShortestPath shortest_path = ShortestPath(graph);
 
-    for (int i = 0; i < graph.get_number_of_nodes(); i++) {
-        cout << "Is 0 adjacent to " << i << "? ";
-        cout << (graph.are_adjacent(0, i) ? "yes" : "no") << endl;
-    }
+    // Sometimes get this error:
+    //  libc++abi.dylib: terminating with uncaught exception of type std::out_of_range: vector
+    //  Abort trap: 6
+    vector<int> path_list = shortest_path.path(0, 4);
 
-    PriorityQueue queue = PriorityQueue();
-    queue.insert(0, 10);
-    cout << "Oddish" << endl;
-    cout << "index: " << queue.top()->get_index() << " | ";
-    cout << "priority: " << queue.top()->get_priority() << endl;
+    cout << "path_list: ";
+    print_vector(path_list);
+    cout << endl;
 
-    queue.insert(1, 20);
-    cout << "index: " << queue.top()->get_index() << " | ";
-    cout << "priority: " << queue.top()->get_priority() << endl;
+    // for (int i = 0; i < graph.get_number_of_nodes(); i++) {
+    //     cout << "neighbors of " << i << ": ";
+    //     print_vector( graph.get_neighbors(i) );
+    //     cout << endl;
+    // }
 
-    queue.insert(2, 3);
-    cout << "index: " << queue.top()->get_index() << " | ";
-    cout << "priority: " << queue.top()->get_priority() << endl;
+    // for (int i = 0; i < graph.get_number_of_nodes(); i++) {
+    //     cout << "Is 0 adjacent to " << i << "? ";
+    //     cout << (graph.are_adjacent(0, i) ? "yes" : "no") << endl;
+    // }
 
-    PriorityQueue::Node minNode = queue.min_priority();
-    cout << "index: " << minNode.get_index() << " | ";
-    cout << "priority: " << minNode.get_priority() << endl;
+    // PriorityQueue queue = PriorityQueue();
+    // queue.insert(0, 10);
+    // cout << "Oddish" << endl;
+    // cout << "index: " << queue.top()->get_index() << " | ";
+    // cout << "priority: " << queue.top()->get_priority() << endl;
+    //
+    // queue.insert(1, 20);
+    // cout << "index: " << queue.top()->get_index() << " | ";
+    // cout << "priority: " << queue.top()->get_priority() << endl;
+    //
+    // queue.insert(2, 3);
+    // cout << "index: " << queue.top()->get_index() << " | ";
+    // cout << "priority: " << queue.top()->get_priority() << endl;
+    //
+    // PriorityQueue::Node minNode = queue.min_priority();
+    // cout << "index: " << minNode.get_index() << " | ";
+    // cout << "priority: " << minNode.get_priority() << endl;
 }

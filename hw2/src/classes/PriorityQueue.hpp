@@ -2,6 +2,7 @@
     Header file for PriorityQueue
     Author: Alec Landow
 */
+#pragma once
 
 #include <iostream>
 #include <queue>
